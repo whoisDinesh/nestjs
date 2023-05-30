@@ -12,9 +12,9 @@ export class VoiceRecordingController {
 
   constructor() {
     this.s3 = new S3({
-      accessKeyId: 'AKIAYI6QPS7T7MWFI53M',
-      secretAccessKey: '108RPo8ANatSP7/uHnFgtV3h8pzWe3g3yjKcS8fl',
-      region: 'us-east-2',
+      accessKeyId: 'Your access keyid',
+      secretAccessKey: 'your secretaccesskey',
+      region: 'aws region',
     });
   }
 
@@ -66,7 +66,7 @@ export class VoiceRecordingController {
 @ApiResponse({ status: 500, description: 'Failed to upload file' })
   async create(@UploadedFile() voiceFile: Express.Multer.File) {
     const uploadParams = {
-      Bucket: 'grouphomeadminprivatefiles',
+      Bucket: 'bucket name',
       Key: `recordings/${voiceFile.filename}`,
       Body: voiceFile.buffer,
     };
